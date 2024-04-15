@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+body {
+  font-family: "Satoshi", sans-serif;
+}
+
+@font-face {
+  font-family: openingfont;
+  src: url(font.ttf);
+}
+.opening-font {
+  font-family: openingfont;
+  line-height: 5rem;
+  letter-spacing: 0.5rem;
+}
+
+.welcome {
+  font-family: openingfont;
+  letter-spacing: 0.3rem;
+}
+
+/* box shadow  */
+.box-shadow {
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 5px 8px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.underline_hover_effect {
+  position: relative;
+  border: none;
+  background: none;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  text-decoration: none;
+  color: black;
+}
+
+.underline_hover_effect:focus:after,
+.underline_hover_effect:hover:after {
+  width: 100%;
+  left: 0%;
+}
+
+.underline_hover_effect:after {
+  content: "";
+  pointer-events: none;
+  bottom: -2px;
+  left: 50%;
+  position: absolute;
+  width: 0%;
+  height: 1.5px;
+  background-color: #1b1b1b;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: width, left;
+}
+
+/* condition  */
+.underline_1 {
+  position: relative;
+  text-decoration: none;
+}
+
+.underline_1:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  /* border-top: solid 3px #ff0200; */
+  left: 0;
+  /* bottom: -10px; */
+  border-radius: 50%;
+  height: 2px;
+}
+
+/* navbar  border animation  */
+
+/* servie animation part  */
+section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+/* service css  */
+.image-hover {
+  width: 100%;
+  display: flex;
+  justify-content: between;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  padding: 2vh 0;
+  transform-origin: top left;
+  animation: skwoop 0.7s var(--easing) backwards;
+  animation-duration: calc(0.6s + (var(--i) * 0.1s));
+  animation-delay: calc((var(--i) * 50ms));
+  cursor: pointer;
+
+  img {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 35%;
+    max-height: 30%;
+    pointer-events: none;
+    z-index: 2;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s linear, visibility 0s linear 0.2s;
+  }
+}
+
+.image-container {
+  position: relative;
+}
+
+@media screen and (min-width: 768px) {
+  .image-hover:hover,
+  .image-hover:focus {
+    z-index: 10;
+  }
+
+  .image-hover:hover .title::after,
+  .image-hover:focus .title::after {
+    display: block;
+  }
+
+  .image-hover:hover > img,
+  .image-hover:focus > img {
+    transition-delay: 0s;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .image-hover > img {
+    --x-px: calc(var(--x) * 1px);
+    --y-px: calc(var(--y) * 1px);
+    top: 0;
+    left: 0;
+    transform: translate(var(--x-px), var(--y-px)) translate(-50%, -50%);
+  }
+
+  .nav-link:hover ~ .cursor {
+    transform: scale(6);
+  }
+
+  .image-container {
+    position: relative;
+  }
+
+  .gradient-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    width: 70%;
+    height: 20%; /* Adjust this value to control the height of the blended area */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0));
+    pointer-events: none; /* Ensure the overlay doesn't interfere with mouse events */
+  }
+}
