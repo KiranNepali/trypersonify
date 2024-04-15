@@ -10,6 +10,12 @@ export default function OpeningSpotlight() {
   // useEffect(() => {
   //   OpeningAnim();
   // }, []);
+  useEffect(() => {
+    // Check if the screen width is greater than or equal to a certain threshold
+    if (window && window.innerWidth >= 1024) {
+      OpeningAnim(); // Call your OpeningAnim function
+    }
+  }, []);
   const scroll = useRef(null);
   useGSAP(() => {
     gsap.to(scroll.current, {
@@ -24,7 +30,7 @@ export default function OpeningSpotlight() {
     <div className="fixed top-0 left-0  w-full h-screen">
       <div id="container" className="absolute w-full h-screen">
         <img
-          className="object w-full h-full object-cover object-center"
+          className="object w-full block lg:hidden h-full object-cover object-center"
           src="https://i.pinimg.com/originals/c2/91/0d/c2910d9584868f67b910834f98997f1d.jpg"
           alt=""
         />

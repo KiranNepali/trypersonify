@@ -15,9 +15,34 @@
   <body>
     <div id="root"></div>
     <!-- for earth  -->
-    <!-- <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1037366/three.js"></script>
+    <!-- <div class="animation-opening">
+      <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1037366/three.js"></script>
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1037366/CanvasRenderer.js"></script>
-    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1037366/Projector.js"></script> -->
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1037366/Projector.js"></script>
+    </div> -->
+
+    <!-- for earth  -->
+    <div class="animation-opening" id="animation-container">
+      <script>
+        // Check if the screen width is greater than or equal to a certain threshold
+        if (window.innerWidth >= 1024) {
+          var script = document.createElement("script");
+          script.src =
+            "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1037366/three.js";
+          document.getElementById("animation-container").appendChild(script);
+
+          var script2 = document.createElement("script");
+          script2.src =
+            "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1037366/CanvasRenderer.js";
+          document.getElementById("animation-container").appendChild(script2);
+
+          var script3 = document.createElement("script");
+          script3.src =
+            "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1037366/Projector.js";
+          document.getElementById("animation-container").appendChild(script3);
+        }
+      </script>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
