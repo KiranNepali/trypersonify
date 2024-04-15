@@ -8,7 +8,7 @@ import { Link } from "react-scroll";
 
 export default function OpeningSpotlight() {
   useEffect(() => {
-    // OpeningAnim();
+    OpeningAnim();
   }, []);
   const scroll = useRef(null);
   useGSAP(() => {
