@@ -103,7 +103,6 @@ export default function App() {
 
         <div className={`w-full h-full bg-[#FFFFFF] text-black relative z-10`}>
           {/* <PreLoaderOpening /> */}
-          <PreLoaderOpening />
           <Opening />
           <div ref={openingRef}>
             <OpeningSpotlight />
