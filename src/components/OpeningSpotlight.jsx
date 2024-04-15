@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import OpeningAnim from "../anim/OpeningAnim.js";
 import { Icon } from "@iconify/react";
 import { useGSAP } from "@gsap/react";
@@ -7,15 +7,32 @@ import PlanetImg from "../assets/planet.png";
 import { Link } from "react-scroll";
 
 export default function OpeningSpotlight() {
-  // useEffect(() => {
-  //   OpeningAnim();
-  // }, []);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
   useEffect(() => {
-    // Check if the screen width is greater than or equal to a certain threshold
-    if (window && window.innerWidth >= 1024) {
-      OpeningAnim(); // Call your OpeningAnim function
-    }
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+    screenWidth;
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []); // Emp
+
+  console.log(screenWidth);
+
+  useEffect(() => {
+    screenWidth >1024 && OpeningAnim();
   }, []);
+  // useEffect(() => {
+  //   // Check if the screen width is greater than or equal to a certain threshold
+  //   if (window && window.innerWidth >= 1024) {
+  //     OpeningAnim(); // Call your OpeningAnim function
+  //   }
+  // }, []);
   const scroll = useRef(null);
   useGSAP(() => {
     gsap.to(scroll.current, {
