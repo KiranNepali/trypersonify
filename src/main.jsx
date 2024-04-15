@@ -3,10 +3,10 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import Preloader from "./assets/preloader.gif";
 const App = lazy(() => import("./App.jsx"));
-
+import "./App.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Suspense
+    {/* <Suspense
       fallback={
         <div className="flex gap-6 text-white fixed top-0 left-0  justify-center items-center w-full h-screen bg-black">
           <div className="h-[17rem] w-[17rem] md:w-[18rem] ">
@@ -17,9 +17,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             />
           </div>
         </div>
-      }
-    >
-      <App />
-    </Suspense>
+      } */}
+    {/* > */}
+    <App />
+    {/* </Suspense> */}
   </React.StrictMode>
 );

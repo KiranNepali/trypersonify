@@ -100,7 +100,6 @@ export default function App() {
             handlePlayAudio={handlePlayAudio}
           />
         </div>
-
         <div className={`w-full h-full bg-[#FFFFFF] text-black relative z-10`}>
           {/* <PreLoaderOpening /> */}
           <Opening />
